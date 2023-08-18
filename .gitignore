@@ -1,0 +1,85 @@
+# ============================================================
+# Basic .gitignore for Python projects with VS Code 
+# This file helps you specify which files should not be 
+# tracked by git, hence not added to your repository.
+# ============================================================
+
+# ============================================================
+# Virtual Environments
+# ============================================================
+# Generally, you'll want to exclude virtual environments from version control.
+# They can be regenerated from a requirements.txt file and tend to be large.
+# .venv is a common name for virtual environments.
+.venv/
+venv/
+env/
+
+# ============================================================
+# Secrets
+# ============================================================
+# NEVER commit secrets. It's a security risk.
+.env  # Often used for environment variables and secrets.
+
+# ============================================================
+# Python Artifacts
+# ============================================================
+# Compiled python files.
+__pycache__/
+*.pyc
+*.pyo
+
+# Packaging artifacts.
+*.egg-info/
+dist/
+build/
+
+# ============================================================
+# Editor - Visual Studio Code
+# ============================================================
+# Visual Studio Code adds settings and cache directories 
+# that you might want to keep out of your repository.
+.vscode/*
+.history/
+
+# ============================================================
+# macOS System Files
+# ============================================================
+# macOS adds various hidden files to directories. 
+# You typically don't want these in your repository.
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# ============================================================
+# Backup & Temporary Files
+# ============================================================
+# These are often added by text editors and some tools. 
+# You typically don't want temporary or backup files in your repository.
+*~
+*.bak
+*.swp
+*.swo
+
+# ============================================================
+# Logs & Databases
+# ============================================================
+*.log
+*.sql
+*.sqlite
+
+# ============================================================
+# Node Modules
+# ============================================================
+# If your project ever uses something from Node.js (like 
+# some front-end libraries or tools), you might end up with
+# a node_modules directory.
+node_modules/
+
+# ============================================================
+# End of .gitignore
+# ============================================================
