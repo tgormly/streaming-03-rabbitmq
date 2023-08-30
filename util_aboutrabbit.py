@@ -13,7 +13,11 @@ and save them in a file named `aboutrabbit.txt`.
 If you face issues with RabbitMQ, review this file and share 
 its contents to help with debugging.
 
-To use, simply execute this script: `python aboutrabbit.py`
+USAGE:
+To use, execute this script. In VS Code select Terminal / New Terminal and 
+run the following command: python util_aboutrabbit.py
+- OR On Windows:         py util_aboutrabbit.py
+- OR On macOS/Linux:     python3 util_aboutrabbit.py
 
 @Author: Denise Case
 @Updated: 2023-08
@@ -51,26 +55,29 @@ DIVIDER = "=" * 70  # A string divider for cleaner output formatting
 
 import os
 
+
 def get_choco_rabbitmq_path():
     """Find the path of RabbitMQ installation by Chocolatey."""
     # Define the general directory where Chocolatey installs software
     # Use a raw string to avoid issues with backslashes (preface with r)
     base_choco_dir = r"C:\ProgramData\chocolatey\lib\rabbitmq\tools"
-    
+
     # Check if the base choco directory exists
     if os.path.exists(base_choco_dir):
         # List all folders in the directory
         folders = os.listdir(base_choco_dir)
-        
+
         # Find folders starting with 'rabbitmq_server'
-        rabbitmq_folders = [f for f in folders if f.startswith('rabbitmq_server')]
-        
+        rabbitmq_folders = [f for f in folders if f.startswith("rabbitmq_server")]
+
         # Sort them to get the latest version (assuming version numbers are used in the naming)
         rabbitmq_folders.sort(reverse=True)
-        
+
         # Get the path of the latest version
         if rabbitmq_folders:
-            latest_version_path = os.path.join(base_choco_dir, rabbitmq_folders[0], "sbin")
+            latest_version_path = os.path.join(
+                base_choco_dir, rabbitmq_folders[0], "sbin"
+            )
             # Return the path if it exists
             if os.path.exists(latest_version_path):
                 return latest_version_path

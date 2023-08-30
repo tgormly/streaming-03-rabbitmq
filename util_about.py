@@ -1,25 +1,31 @@
 """
-======================= INSTRUCTOR-GENERATED FILE =======================
+======================= INSTRUCTOR-GENERATED FILE =============================
+Source: https://github.com/denisecase/nw-diagnostics-python/
+================================================================================
 
-This is an auxiliary script to assist with debugging and understanding
-your Python environment and system setup. It is NOT part of the main project tasks.
+PURPOSE:
+- Generate information about the local machine and Python installation.
+- Help detect common issues.
 
-You do NOT need to understand all the details or modify this file. 
+NO WORRIES:
+- This is NOT part of your project tasks. It's here to help.
+- As an instructor-provided script, there's no need to modify or delve 
+  into its internals. 
 
-Run this script before beginning your project. 
-It will print information to the terminal and save it in a file named `about.txt`.
-If you face issues, review this file and share its contents to help with debugging.
+NO EXTERNAL DEPENDENCIES:
+- This script uses ONLY modules included in the Python standard library.
+- No installations (besides Python) are required.
 
-This script uses ONLY modules included in the Python standard library.
-No additional installations are required.
-
-To use, simply execute this script: `python about.py`
+USAGE:
+To use, execute this script. In VS Code select Terminal / New Terminal and 
+run the following command: python util_about.py
+- OR On Windows:         py util_about.py
+- OR On macOS/Linux:     python3 util_about.py
 
 @Author: Denise Case
-@Updated: 2023-08
+@Updated: 2021-08
 
 ==========================================================================
-
 """
 
 # Import from Python Standard Library
@@ -33,7 +39,7 @@ import sys
 # Declare program constants (typically constants are named with ALL_CAPS)
 
 DIVIDER = "=" * 70  # A string divider for cleaner output formatting
-OUTPUT_FILENAME = "about.txt"  # File name for saving the debug information
+OUTPUT_FILENAME = "util_about.txt"  # File name for saving the info
 
 # Retrieve additional system information using platform and os modules
 
@@ -41,7 +47,6 @@ build_date, compiler = platform.python_build()
 implementation = platform.python_implementation()
 architecture = platform.architecture()[0]
 user_home = os.path.expanduser("~")
-
 
 # Define program functions (bits of reusable code)
 
@@ -91,6 +96,30 @@ def is_git_in_path():
     return shutil.which("git") is not None
 
 
+def get_preferred_command():
+    """
+    Determine the preferred Python command based on the operating system.
+
+    Returns:
+    - str: 'python' for Windows, 'python3' for macOS and Linux.
+    """
+    if os.name == "nt":  # Checks if the OS is Windows.
+        return "python"
+    return "python3"
+
+
+def is_preferred_command_available():
+    """
+    Checks if the preferred Python command is available in the PATH.
+
+    Returns:
+    - tuple: (str: Preferred command name, bool: Availability in PATH)
+    """
+    preferred_command = get_preferred_command()
+    is_available = shutil.which(preferred_command) is not None
+    return is_available
+
+
 def print_info_to_file(filename, content):
     """
     Print the provided content to a specified file.
@@ -119,7 +148,7 @@ def get_header(fn):
     return f"""
 {DIVIDER}
 {DIVIDER}
- Welcome to the Python Debugging Information Utility ABOUT.PY
+ Welcome to the NW Python Debugging Information Utility!
  Date and Time: {datetime.date.today()} at {datetime.datetime.now().strftime("%I:%M %p")}
  Operating System: {os.name} {platform.system()} {platform.release()}
  System Architecture: {architecture}
@@ -128,7 +157,8 @@ def get_header(fn):
  Python Version: {platform.python_version()}
  Python Build Date and Compiler: {build_date} with {compiler}
  Python Implementation: {implementation}
- Active pip environment: {os.environ.get('PIP_DEFAULT_ENV', 'None')}
+ Active pip environment:   {os.environ.get('PIP_DEFAULT_ENV', 'None')}
+ Active conda environment: {os.environ.get('PIP_DEFAULT_ENV', 'None')}
  Path to Interpreter:         {sys.executable}
  Path to virtual environment: {sys.prefix}
  Current Working Directory:   {os.getcwd()}
@@ -137,7 +167,9 @@ def get_header(fn):
  User's Home Directory:       {user_home}
  Terminal Environment:        {environment}
  Terminal Type:               {current_shell}
- Git available in PATH:       {is_git_in_path()} 
+ Preferred command:           {get_preferred_command()}
+ Is {get_preferred_command()} available in PATH:   {is_preferred_command_available()}
+ Is git available in PATH:      {is_git_in_path()} 
 {DIVIDER}
 {DIVIDER}
 """

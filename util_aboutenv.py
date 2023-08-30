@@ -15,7 +15,11 @@ its contents to help with debugging.
 This script uses ONLY modules included in the Python standard library.
 No additional installations are required.
 
-To use, simply execute this script: `python aboutenv.py`
+USAGE:
+To use, execute this script. In VS Code select Terminal / New Terminal and 
+run the following command: python util_aboutenv.py
+- OR On Windows:         py util_aboutenv.py
+- OR On macOS/Linux:     python3 util_aboutenv.py
 
 @Author: Denise Case
 @Updated: 2023-08
@@ -34,14 +38,13 @@ import sys
 # Setup logging
 
 OUTPUT_FILENAME = "aboutenv.txt"
-logging.basicConfig(level=logging.INFO,
-                    format='%(message)s',
-                    handlers=[
-                        logging.FileHandler(OUTPUT_FILENAME, mode='w'),
-                        logging.StreamHandler()
-                    ])
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    handlers=[logging.FileHandler(OUTPUT_FILENAME, mode="w"), logging.StreamHandler()],
+)
 
-# Declare additional program constants 
+# Declare additional program constants
 
 DIVIDER = "=" * 70  # A string divider for cleaner output formatting
 CREATE_COMMAND = "python -m venv .venv"
@@ -89,6 +92,7 @@ def check_dotvenv_is_active():
         )
     return error_code, message
 
+
 def get_search_path_string():
     paths = "\n".join(sys.path)
     return f"""
@@ -97,6 +101,7 @@ Python's package search paths:
 {paths}
 {"-" * 40}
 """
+
 
 def read_dependencies():
     """Read dependencies from requirements.txt and return a list of package names."""
@@ -134,6 +139,7 @@ def check_dependencies_installed_in_dotvenv():
     message = "YAY! All dependencies are installed in the .venv."
     return 0, message
 
+
 def log_with_divider(message):
     """Logs a message and the DIVIDER."""
     logging.info(message)
@@ -169,5 +175,7 @@ def verify_environment():
 if __name__ == "__main__":
     logging.info(DIVIDER)
     logging.info("Welcome to the Python Debugging Information Utility ABOUTENV.PY")
-    logging.info(f"Date and Time: {datetime.date.today()} at {datetime.datetime.now().strftime('%I:%M %p')}")
+    logging.info(
+        f"Date and Time: {datetime.date.today()} at {datetime.datetime.now().strftime('%I:%M %p')}"
+    )
     verify_environment()

@@ -2,11 +2,14 @@
 
 > Get started with RabbitMQ, a message broker, that enables multiple processes to communicate reliably through an intermediary.
 
-This project requires some additional free code - beyond that available in the Python Standard Library. To avoid messing up our local default Python installation, and any other Python projects we may have, we will create a local virtual environment to install and use these additional libraries.
+This project requires some free code - beyond that available in the Python Standard Library. To avoid messing up our local default Python installation, and any other Python projects we may have, we  create a local virtual environment to install and use these libraries.
 
-It may be helpful to think of a virtual environment as a sandbox. We can install whatever we want in our sandbox, and it won't affect anything outside of the sandbox. It seems strange at first, but by the end of the course, you'll likely be very familiar with virtual environments.
+Think of a virtual environment as a safe sandbox. 
+We can install whatever we want in our sandbox, and it won't break other Python projects that may require different versions, etc. 
 
-Note: We will use the built-in Python utility venv to create our virtual environment. There are other options, but this is the simplest and most common. We'll create the environment as a subfolder of this repo named .venv to keep it away from our project code. 
+We use the built-in Python utility `venv` to create our virtual environment. 
+There are other options, but this is simplest and most common. 
+We create the environment as a subfolder of this repo named .venv to keep it away from our project code. 
 
 
 ## Prerequisites
@@ -41,11 +44,10 @@ We use .venv as the name to keep it away from our project files.
 
 In the same VS Code terminal window, activate the virtual environment.
 
-On Windows, run: `.venv\Scripts\activate`
+- On Windows, run: `.venv\Scripts\activate`
+- On Linux/MacOS, run: `source .venv/bin/activate`
 
-On Linux/MacOS, run: `source .venv/bin/activate`
-
-Verify you see the virtual environment name in your terminal prompt.
+Verify you see the virtual environment name (.venv) in your terminal prompt.
 
 ## Task 3. Install Dependencies into the Virtual Environment
 
@@ -62,12 +64,15 @@ Make sure you can see the .venv name in your terminal prompt before running this
 
 ## Task 4. Verify Setup
 
-In your VS Code terminal window, run the following commands to verify your setup.
-Ensure you get successful results before moving on. 
+In your VS Code terminal window, run the following commands to help verify your setup.
+These util files MAY be helpful to ensure you're setup correctly. 
+You may have a different configuration and RabbitMQ may still work; the check looks in common places, but may not work for all installations. 
+They are meant to be helpful, but are not required.
 
 ```shell
-python about.py
-python aboutenv.py
+python util_about.py
+python util_aboutenv.py
+python util_aboutrabbit.py
 pip list
 ```
 
@@ -84,16 +89,19 @@ Approach it like a puzzle and see what you can figure out.
 
 ## Task 6. Execute the Producer/Sender
 
-1. Run emit_message.py
+1. Read v1_emit_message.py (and the tutorial)
+1. Run the file. 
 
 It will run, emit a message to the named RabbitMQ queue, and finish.
 We can execute additional commands in the terminal as soon as it finishes. 
 
 ## Task 7. Execute the Consumer/Listener
 
-1. Run listen_for_messages.py
+1. Read v1_listen_for_messages.py (and the tutorial)
+1. Run the file.
 
-Will it terminate on its own? How do you know? 
+You'll need to fix an error in the program to get it to run.
+Once it runs successfully, will it terminate on its own? How do you know? 
 As long as the process is running, we cannot use this terminal for other commands. 
 
 ## Task 8. Open a New Terminal / Emit More Messages
@@ -126,8 +134,33 @@ Now, to send a new message, you'll only make ONE change.
 Updating and improving code is called 'refactoring'. 
 Use your skills to keep coding enjoyable. 
 
+## Version 2
+
+Now look at the second version of each file.
+These include more graceful error handling,
+and a consistent, reusable approach to building code.
+
+Each of the version 2 programs include an error as well. 
+
+1. Find the error and fix it. 
+1. Compare the structure of the version 2 files. 
+1. Modify the docstrings on all your files.
+1. Include your name and the date.
+1. Imports always go at the top, just after the file docstring.
+1. Imports should be one per line - why?
+1. Then, define your functions.
+1. Functions are reusable logic blocks.
+1. Everything the function needs comes in through the arguments.
+1. A function may - or may not - return a value. 
+1. When we open a connection, we should close the connection. 
+1. Which of the 4 files will always close() the connection?
+1. Search GitHub for if __name__ == "__main__":
+1. How many hits did you get? 
+1. Learn and understand this common Python idiom.
+
 ## Reference
 
+- [RabbitMQ Tutorial - Hello, World!](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
 - [Using Python environments in VS Code](https://code.visualstudio.com/docs/python/environments)
 - [RabbitMQ Get Started](https://www.rabbitmq.com/#getstarted)
 
