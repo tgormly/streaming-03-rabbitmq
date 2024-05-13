@@ -62,12 +62,15 @@ Make sure you can see the .venv name in your terminal prompt before running this
 
 `python -m pip install -r requirements.txt`
 
-## Task 4. Verify Setup
+## Task 4. Verify Setup (OPTIONAL - ONLY WORK ON SOME CONFIGURATIONS)
 
 In your VS Code terminal window, run the following commands to help verify your setup.
 These util files MAY be helpful to ensure you're setup correctly. 
 You may have a different configuration and RabbitMQ may still work; the check looks in common places, but may not work for all installations. 
 They are meant to be helpful, but are not required.
+
+You can help by updating the code for other common configurations. 
+Just fork the current repo, add your change, and create a pull request (no other changes please) and I'll pull it back in. 
 
 ```shell
 python util_about.py
