@@ -1,4 +1,7 @@
 """
+Tim Gormly
+5/19/2024
+
     This program sends a message to a queue on the RabbitMQ server.
 
 """

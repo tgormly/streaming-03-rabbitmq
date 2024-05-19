@@ -1,0 +1,12 @@
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO ==================================================
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO Today is 2024-05-19 at 04:43 PM
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO Running on: nt Windows 10
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO Python version:  3.11.9
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO Python path: C:\Users\timgo\Desktop\School\Summer2024\Data Streaming\Week 3\streaming-03-rabbitmq\.venv
+2024-05-19 16:43:55,036.v2_listen_for_messages.INFO Working dir: C:\Users\timgo\Desktop\School\Summer2024\Data Streaming\Week 3\streaming-03-rabbitmq
+2024-05-19 16:43:55,039.v2_listen_for_messages.INFO ==================================================
+2024-05-19 16:43:55,059.v2_listen_for_messages.INFO  [*] Waiting for messages. To exit press CTRL+C
+2024-05-19 16:43:55,059.v2_listen_for_messages.INFO Received: Hello World!
+2024-05-19 16:43:55,059.v2_listen_for_messages.INFO Received: Hello World!
+2024-05-19 16:50:50,214.v2_listen_for_messages.WARNING User interrupted the listening process.
+2024-05-19 16:50:50,214.v2_listen_for_messages.INFO Closing connection. Goodbye.
