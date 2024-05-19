@@ -1,3 +1,8 @@
+# Tim Gormly
+### 5/19/2024
+
+<hr>
+
 # streaming-03-rabbitmq
 
 > Get started with RabbitMQ, a message broker, that enables multiple processes to communicate reliably through an intermediary.
@@ -98,6 +103,8 @@ Approach it like a puzzle and see what you can figure out.
 It will run, emit a message to the named RabbitMQ queue, and finish.
 We can execute additional commands in the terminal as soon as it finishes. 
 
+![An image of a message emiter](./images/Emitter.png)
+
 ## Task 7. Execute the Consumer/Listener
 
 1. Read v1_listen_for_messages.py (and the tutorial)
@@ -105,17 +112,22 @@ We can execute additional commands in the terminal as soon as it finishes.
 
 You'll need to fix an error in the program to get it to run.
 Once it runs successfully, will it terminate on its own? How do you know? 
+
+--it will not terminate.  We can see that the main() function does not include any code that would cause this to terminate. We can see when we run the code that the terminal becomes unavilable while the script is running.  We can interrupt with ctrl+C to terminate the program.
+
 As long as the process is running, we cannot use this terminal for other commands. 
+![An image of a message listener](./images/Consumer.png)
 
 ## Task 8. Open a New Terminal / Emit More Messages
 
 1. Open a new terminal window.
 1. Use this new window to run emit_message.py again.
 1. Watch the listing terminal - what do you see?  A second message?
+-- a new message does come in.  We can run emit_message and a new message will be received and printed each time.
 
 Sending the same message each time is kind of boring. This time:
 
-1. Where is the message defined? How can you change it?
+1. Where is the message defined? How can you change it? --this is in the body parameter in ch.basic_publish()
 1. Modify emit_message.py to emit a different message. 
 1. Execute the updated emit_message.py. 
 1. Watch what happens in the listening terminal.
@@ -133,7 +145,7 @@ Did you notice you had to change the message in TWO places?
 1. Use your variable when sending. 
 1. Use the variable again when displaying to the user. 
 
-Now, to send a new message, you'll only make ONE change.
+Now, to send a new message, you'll only make ONE change. --complete
 Updating and improving code is called 'refactoring'. 
 Use your skills to keep coding enjoyable. 
 
